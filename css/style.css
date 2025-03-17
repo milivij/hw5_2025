@@ -1,11 +1,11 @@
 /*step 1*/
 @keyframes logoFrame{
     from{
-        width: 25px;
+         width: 25px; /*smaller width, fully transparent */
         opacity: 0;
     }
     to{
-        width: 2500px;
+        width: 2500px; /*larger width, fully opaque */
         opacity: 1;
     }
 }
@@ -18,7 +18,7 @@
 body{
     font-family: "Poppins", serif;
     background-image: url('../images/concrete_seamless.png');
-    background-color: #f1f1f1;
+     background-color: #f1f1f1;  /* fallback color */
     background-repeat: no-repeat;
     background-attachment: fixed; 
     background-size: cover;
@@ -27,29 +27,38 @@ body{
 
 /*step 3*/
 header {
-    display: flex;
-    justify-content: center;
+    display: flex; 
+    /* center horizontally */
+    justify-content: center; 
+    /* center vertically */
     align-items: center;
+    /* stacks vertically */
     flex-direction: column;
 }
 
 /*step 4*/
 .nav_links {
     display: flex;
+    /* stacks vertically */
     flex-direction: column;
 }
 
 /*step 5*/
 .nav_links li a:visited {
+    /* inherits/keeps color once link is visited */
     color: inherit;
 }
 
 /*step 6*/
+/* for the headers in card */
 .card > header {
     background: #288088;
     border: 2px solid #45ADAD;
     padding-top: 20px;
     padding-bottom: 20px;
+    padding-left: 0px;
+    padding-right: 0px;
+    /* rounding the corners */
     border-top-left-radius: 50px;
     border-top-right-radius: 50px;
     border-bottom-left-radius: 0px;
@@ -57,6 +66,7 @@ header {
 }
 
 .card{
+    /* rounding out the corners for all of the sections */
     border-top-left-radius: 50px;
     border-top-right-radius: 50px;  
     border-bottom-left-radius: 0px;
@@ -65,29 +75,38 @@ header {
 
 /*step 7*/
 .card{
-    display: flex;
+    /* makes card a flex container */
+    display: flex; 
     flex-direction: column;
+    /* creates initial width */
     flex-basis: 450px; 
 }
 
 /*step 8*/
 .pricing{
+    /* makes card a flex container */
     display: flex;
+    /* centering horizontally and vertically */
     justify-content: center;
     align-items: center;
+    /* moves them into new rows incase they don't fit */
     flex-wrap: wrap; 
 }
 
 /*step 9*/
 .gallery img {
+    /* creating a border */
     border: 10px solid #50C7C7;
+    /* creating margin and width on all sides of the gallery images */
     margin: 10px;
     width: 300px;
 }
 
 /*step 10*/
 .gallery{
+    /* makes gallery a flex container */
     display: flex;
+    /* moves them into new rows incase they don't fit */
     flex-wrap: wrap;
     justify-content: center;
 }
@@ -97,21 +116,26 @@ header {
     /*step 11*/
 
     header{
+        /* making them spread evenly from the end to begining */
         justify-content: space-between;
+        /* stacks horizontally */
         flex-direction: row;
     }
 
     .nav_links{
+        /* stacks horizontally */
         flex-direction: row;
     }
 
     /*step 12*/
     .card{
+        /* creates initial width */
         flex-basis: 275px;
     }
 
     /*step 13*/
     .pricing{
+        /* creates initial width */
         flex-basis: 275px;
     }
 
@@ -126,7 +150,9 @@ header {
 
 /*step 14*/
 @media (prefers-reduced-motion: reduce){
+    /* cancelling the amination for reduced motion screens */
     #logo {
+        /* no animation */
         animation: none;
     }  
 }
@@ -134,14 +160,16 @@ header {
 @media print {
 
     body {
-        font-family: Arial, Helvetica, sans-serif;
+
+    /* changing the font for the printer option to arial with helvetica and sans as a backup */
+        font-family: Arial, Helvetica, sans-serif; 
         background-image: none;
     }
-
+  /* making the navigation span the full width of the page  */
     nav{
         width: 100%; 
     }
-
+     /* aligns the navigation horizontally in a row */
     .nav_links{
         flex-direction: row;
         justify-content: space-around;
@@ -149,19 +177,24 @@ header {
 
 
     .pricing{
+        /* makes sure to align the items at the bottom */
         align-items: flex-end; 
+        /* makes sure to align the items at the bottom */
         flex-wrap: nowrap; 
     }
 
     .card{
+        /* changes border and base size for printing */
         border: 2px solid #45ADDD;
         flex-basis: 325px;
     }
 
     .gallery {
+        /* hides the gallery display for the printing */
         display: none;
     }
-
+    
+     /* ading the thumbs up icon */
     .card ul li:nth-child(2)::after{
         content: "👍";
     }
